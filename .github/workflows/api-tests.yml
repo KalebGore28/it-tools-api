@@ -13,6 +13,10 @@ jobs:
       # Ensure Bun is found by adding its install directory to PATH
       PATH: ${{ secrets.HOME }}/.bun/bin:$PATH
     steps:
+      - name: Install tar
+        run: |
+          sudo apt-get update && sudo apt-get install -y tar
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
