@@ -11,9 +11,6 @@ RUN bun install
 COPY . . 
 RUN bun run bundle
 
-# Create logs directory with correct permissions
-RUN mkdir -p /usr/src/app/logs && chown -R 1000:1000 /usr/src/app/logs
-
 # Stage 2: Final minimal container
 FROM oven/bun:distroless AS final
 
@@ -21,7 +18,6 @@ WORKDIR /usr/src/app
 
 # Copy only the bundled application and dependencies
 COPY --from=builder /usr/src/app/dist/server.js ./dist/server.js
-COPY --from=builder /usr/src/app/logs /usr/src/app/logs
 
 # Use non-root user for security
 USER 1000
