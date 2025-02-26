@@ -6,7 +6,7 @@
 		"bun": ">=1.0.0"
 	},
 	"scripts": {
-		"start": "bun run dist/index.js",
+		"start": "bun run dist/server.js",
 		"dev": "bunx nodemon --exec bun run src/index.ts",
 		"test": "bun test --watch --coverage",
 		"bundle": "bun build --target=bun src/index.ts --outfile dist/server.js --minify",
