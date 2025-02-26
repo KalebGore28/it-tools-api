@@ -30,6 +30,7 @@ import { uuidGeneratorRoute } from './routes/uuidGenerator'
 // Create Elysia App
 export const app = new Elysia({ aot: false })
     .use(
+        // @ts-ignore
         logixlysia({
             config: {
                 showStartupMessage: true,
@@ -38,7 +39,6 @@ export const app = new Elysia({ aot: false })
                     translateTime: 'yyyy-mm-dd HH:MM:ss'
                 },
                 ip: true,
-                logFilePath: './logs/example.log',
                 customLogFormat:
                     '{now} {level} {duration} {method} {pathname} {status} {message} {ip} {epoch}',
             }
