@@ -1,0 +1,77 @@
+{
+	"1xx": {
+	  "title": "Informational Response",
+	  "codes": [
+		{ "code": 100, "name": "Continue", "description": "Waiting for the client to emit the body of the request." },
+		{ "code": 101, "name": "Switching Protocols", "description": "The server has agreed to change protocol." },
+		{ "code": 102, "name": "Processing", "description": "The server is processing the request, but no response is available yet. For WebDAV." },
+		{ "code": 103, "name": "Early Hints", "description": "The server returns some response headers before the final HTTP message." }
+	  ]
+	},
+	"2xx": {
+	  "title": "Success",
+	  "codes": [
+		{ "code": 200, "name": "OK", "description": "Standard response for successful HTTP requests." },
+		{ "code": 201, "name": "Created", "description": "The request has been fulfilled, resulting in the creation of a new resource." },
+		{ "code": 202, "name": "Accepted", "description": "The request has been accepted for processing, but the processing has not been completed." },
+		{ "code": 203, "name": "Non-Authoritative Information", "description": "The request is successful but the content has been modified by a transforming proxy." },
+		{ "code": 204, "name": "No Content", "description": "The server successfully processed the request and is not returning any content." },
+		{ "code": 205, "name": "Reset Content", "description": "The server indicates to reinitialize the document view." },
+		{ "code": 206, "name": "Partial Content", "description": "The server is delivering only part of the resource." },
+		{ "code": 207, "name": "Multi-Status", "description": "An XML message with multiple response codes. For WebDAV." },
+		{ "code": 208, "name": "Already Reported", "description": "The members of a DAV binding have been enumerated already." },
+		{ "code": 226, "name": "IM Used", "description": "The server fulfilled a request with the representation of the result." }
+	  ]
+	},
+	"3xx": {
+	  "title": "Redirection",
+	  "codes": [
+		{ "code": 300, "name": "Multiple Choices", "description": "Indicates multiple options for the resource." },
+		{ "code": 301, "name": "Moved Permanently", "description": "Future requests should use the given URI." },
+		{ "code": 302, "name": "Found", "description": "Redirect to another URL." },
+		{ "code": 303, "name": "See Other", "description": "The response can be found under another URI." },
+		{ "code": 304, "name": "Not Modified", "description": "The resource has not been modified." },
+		{ "code": 305, "name": "Use Proxy", "description": "The requested resource is available only through a proxy." },
+		{ "code": 306, "name": "Switch Proxy", "description": "No longer used." },
+		{ "code": 307, "name": "Temporary Redirect", "description": "The request should repeat with another URI." },
+		{ "code": 308, "name": "Permanent Redirect", "description": "All future requests should use another URI." }
+	  ]
+	},
+	"4xx": {
+	  "title": "Client Error",
+	  "codes": [
+		{ "code": 400, "name": "Bad Request", "description": "The server cannot or will not process the request." },
+		{ "code": 401, "name": "Unauthorized", "description": "Authentication is required." },
+		{ "code": 402, "name": "Payment Required", "description": "Reserved for future use." },
+		{ "code": 403, "name": "Forbidden", "description": "The server is refusing action." },
+		{ "code": 404, "name": "Not Found", "description": "The requested resource could not be found." },
+		{ "code": 405, "name": "Method Not Allowed", "description": "The request method is not supported." },
+		{ "code": 406, "name": "Not Acceptable", "description": "The resource generates content not acceptable." },
+		{ "code": 407, "name": "Proxy Authentication Required", "description": "The client must authenticate with the proxy." },
+		{ "code": 408, "name": "Request Timeout", "description": "The server timed out waiting for the request." },
+		{ "code": 409, "name": "Conflict", "description": "The request could not be processed due to a conflict." },
+		{ "code": 410, "name": "Gone", "description": "The resource is no longer available." },
+		{ "code": 411, "name": "Length Required", "description": "The request did not specify content length." },
+		{ "code": 412, "name": "Precondition Failed", "description": "A precondition in the request failed." },
+		{ "code": 413, "name": "Payload Too Large", "description": "The request is larger than the server can process." },
+		{ "code": 414, "name": "URI Too Long", "description": "The URI provided is too long for the server." },
+		{ "code": 415, "name": "Unsupported Media Type", "description": "The server does not support the media type." },
+		{ "code": 416, "name": "Range Not Satisfiable", "description": "The client requested a portion of the file that is not available." },
+		{ "code": 417, "name": "Expectation Failed", "description": "The server cannot meet the Expect header requirement." },
+		{ "code": 418, "name": "I'm a teapot", "description": "The server refuses to brew coffee in a teapot." },
+		{ "code": 429, "name": "Too Many Requests", "description": "The user has sent too many requests in a short time." }
+	  ]
+	},
+	"5xx": {
+	  "title": "Server Error",
+	  "codes": [
+		{ "code": 500, "name": "Internal Server Error", "description": "A generic error message." },
+		{ "code": 501, "name": "Not Implemented", "description": "The server does not recognize the request method." },
+		{ "code": 502, "name": "Bad Gateway", "description": "The server received an invalid response from the upstream server." },
+		{ "code": 503, "name": "Service Unavailable", "description": "The server is currently unavailable." },
+		{ "code": 504, "name": "Gateway Timeout", "description": "The server did not receive a timely response." },
+		{ "code": 505, "name": "HTTP Version Not Supported", "description": "The server does not support the HTTP protocol version." },
+		{ "code": 511, "name": "Network Authentication Required", "description": "The client must authenticate to gain network access." }
+	  ]
+	}
+  }

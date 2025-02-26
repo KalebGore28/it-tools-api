@@ -1,0 +1,41 @@
+{
+	"name": "it-tools-api",
+	"module": "index.ts",
+	"type": "module",
+	"engines": {
+		"bun": ">=1.0.0"
+	},
+	"scripts": {
+		"start": "bun run dist/index.js",
+		"dev": "bunx nodemon --exec bun run src/index.ts",
+		"test": "bun test --watch --coverage",
+		"bundle": "bun build --target=bun src/index.ts --outfile dist/server.js --minify",
+		"deploy": "wrangler deploy --minify src/index.ts",
+		"docker": "docker build -t it-tools-api ."
+	},
+	"devDependencies": {
+		"@elysiajs/eden": "^1.2.0",
+		"@types/bun": "latest",
+		"@types/color": "^4.2.0",
+		"@types/diff": "^6.0.0",
+		"@types/nearest-color": "^0.4.1",
+		"wrangler": "^3.110.0"
+	},
+	"peerDependencies": {
+		"typescript": "^5.7.2"
+	},
+	"dependencies": {
+		"@elysiajs/swagger": "^1.2.2",
+		"color": "^4.2.3",
+		"color-name-list": "^11.5.0",
+		"composerize": "^1.7.1",
+		"decomposerize": "^1.4.4",
+		"diff": "^7.0.0",
+		"elysia": "^1.2.22",
+		"logixlysia": "^4.1.2",
+		"lorem-ipsum": "^2.0.8",
+		"nearest-color": "^0.4.4",
+		"ulid": "^2.3.0",
+		"uuid": "^11.1.0"
+	}
+}

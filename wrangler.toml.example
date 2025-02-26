@@ -1,0 +1,13 @@
+name = "it-tools-api"
+compatibility_date = "2025-02-20"
+compatibility_flags = [ "nodejs_compat" ]
+main = "./src/index.ts"
+account_id = "account-id-goes-here"
+route = "optional-route-can-go-here"
+
+[build.upload]
+type = "ESModule"
+globs = ["**/*.ts"]
+
+[observability.logs]
+enabled = true
