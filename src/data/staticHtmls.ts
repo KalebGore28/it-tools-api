@@ -6,18 +6,18 @@ export const indexHtml = `
 		<title>IT-Tools API</title>
 
 		<!-- Standard Favicon -->
-		<link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+		<link rel="icon" type="image/x-icon" href="https://it-tools-api-bucket.noesc.io/favicon.ico">
 		
 		<!-- PNG Favicons -->
-		<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://it-tools-api-bucket.noesc.io/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://it-tools-api-bucket.noesc.io/favicon-32x32.png">
 
 		<!-- Apple Touch Icon (for iOS) -->
-		<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://it-tools-api-bucket.noesc.io/apple-touch-icon.png">
 
 		<!-- Android Chrome Icons -->
-		<link rel="icon" type="image/png" sizes="192x192" href="/public/android-chrome-192x192.png">
-		<link rel="icon" type="image/png" sizes="512x512" href="/public/android-chrome-512x512.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="https://it-tools-api-bucket.noesc.io/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="https://it-tools-api-bucket.noesc.io/android-chrome-512x512.png">
 
 		<style>
 			body {
@@ -65,6 +65,7 @@ export const indexHtml = `
 		<div class="container">
 			<h1>Welcome to IT-Tools API!</h1>
 			<p>Powered by Elysia. Check out the documentation at <a href="/docs">/docs</a>.</p>
+			<p><a href="https://github.com/KalebGore28/it-tools-api">Check out the code on Github</a></p>
 		</div>
 	</body>
 	</html>`;
@@ -77,18 +78,18 @@ export const notFoundHtml = `
 		<title>404 - Page Not Found</title>
 
 		<!-- Standard Favicon -->
-		<link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+		<link rel="icon" type="image/x-icon" href="https://it-tools-api-bucket.noesc.io/favicon.ico">
 		
 		<!-- PNG Favicons -->
-		<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://it-tools-api-bucket.noesc.io/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://it-tools-api-bucket.noesc.io/favicon-32x32.png">
 
 		<!-- Apple Touch Icon (for iOS) -->
-		<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://it-tools-api-bucket.noesc.io/apple-touch-icon.png">
 
 		<!-- Android Chrome Icons -->
-		<link rel="icon" type="image/png" sizes="192x192" href="/public/android-chrome-192x192.png">
-		<link rel="icon" type="image/png" sizes="512x512" href="/public/android-chrome-512x512.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="https://it-tools-api-bucket.noesc.io/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="https://it-tools-api-bucket.noesc.io/android-chrome-512x512.png">
 
 		<style>
 			body {
@@ -157,18 +158,18 @@ export const serverErrorHtml = `
 		<title>500 - Server Error</title>
 
 		<!-- Standard Favicon -->
-		<link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+		<link rel="icon" type="image/x-icon" href="https://it-tools-api-bucket.noesc.io/favicon.ico">
 		
 		<!-- PNG Favicons -->
-		<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="https://it-tools-api-bucket.noesc.io/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="https://it-tools-api-bucket.noesc.io/favicon-32x32.png">
 
 		<!-- Apple Touch Icon (for iOS) -->
-		<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="https://it-tools-api-bucket.noesc.io/apple-touch-icon.png">
 
 		<!-- Android Chrome Icons -->
-		<link rel="icon" type="image/png" sizes="192x192" href="/public/android-chrome-192x192.png">
-		<link rel="icon" type="image/png" sizes="512x512" href="/public/android-chrome-512x512.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="https://it-tools-api-bucket.noesc.io/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="https://it-tools-api-bucket.noesc.io/android-chrome-512x512.png">
 
 		<style>
 			body {

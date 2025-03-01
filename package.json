@@ -25,7 +25,6 @@
 		"typescript": "^5.7.2"
 	},
 	"dependencies": {
-		"@elysiajs/static": "^1.2.0",
 		"@elysiajs/swagger": "^1.2.2",
 		"color": "^4.2.3",
 		"color-name-list": "^11.5.0",
