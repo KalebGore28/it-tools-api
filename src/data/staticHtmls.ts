@@ -4,6 +4,21 @@ export const indexHtml = `
 	<head>
 		<meta charset="UTF-8">
 		<title>IT-Tools API</title>
+
+		<!-- Standard Favicon -->
+		<link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+		
+		<!-- PNG Favicons -->
+		<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+
+		<!-- Apple Touch Icon (for iOS) -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+
+		<!-- Android Chrome Icons -->
+		<link rel="icon" type="image/png" sizes="192x192" href="/public/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="/public/android-chrome-512x512.png">
+
 		<style>
 			body {
 				font-family: sans-serif;
@@ -60,6 +75,21 @@ export const notFoundHtml = `
 	<head>
 		<meta charset="UTF-8">
 		<title>404 - Page Not Found</title>
+
+		<!-- Standard Favicon -->
+		<link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+		
+		<!-- PNG Favicons -->
+		<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+
+		<!-- Apple Touch Icon (for iOS) -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+
+		<!-- Android Chrome Icons -->
+		<link rel="icon" type="image/png" sizes="192x192" href="/public/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="/public/android-chrome-512x512.png">
+
 		<style>
 			body {
 				font-family: sans-serif;
@@ -125,6 +155,21 @@ export const serverErrorHtml = `
 	<head>
 		<meta charset="UTF-8">
 		<title>500 - Server Error</title>
+
+		<!-- Standard Favicon -->
+		<link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+		
+		<!-- PNG Favicons -->
+		<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+
+		<!-- Apple Touch Icon (for iOS) -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+
+		<!-- Android Chrome Icons -->
+		<link rel="icon" type="image/png" sizes="192x192" href="/public/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="/public/android-chrome-512x512.png">
+
 		<style>
 			body {
 				font-family: sans-serif;
