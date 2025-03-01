@@ -11,7 +11,11 @@ const slugify = (text: string): string => {
 		.replace(/--+/g, '-'); // Replace multiple hyphens with a single hyphen
 };
 
-export const slugifyRoute = new Elysia()
+export const slugifyRoute = new Elysia({
+	detail: {
+		tags: ['Text']
+	}
+})
 	.post('/slugify', ({ body }) => {
 		const { text } = body
 		const slug = slugify(text)
@@ -20,7 +24,4 @@ export const slugifyRoute = new Elysia()
 		body: t.Object({
 			text: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Text']
-		}
 	})

@@ -2,7 +2,11 @@
 import { Elysia, t } from 'elysia'
 import { diffWords } from "diff";
 
-export const textDiffRoute = new Elysia()
+export const textDiffRoute = new Elysia({
+	detail: {
+		tags: ['Text']
+	}
+})
 	.post('/text-diff', ({ body }) => {
 		const { text1, text2 } = body
 
@@ -15,7 +19,4 @@ export const textDiffRoute = new Elysia()
 			text1: t.String({ minLength: 1 }),
 			text2: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Text']
-		}
 	})

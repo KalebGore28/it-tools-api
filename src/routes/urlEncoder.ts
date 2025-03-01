@@ -11,7 +11,12 @@ const decodeFromURL = (encoded: string): string => {
 	return decodeURIComponent(encoded);
 };
 
-export const urlEncoderRoute = new Elysia({ prefix: '/url-encoder' })
+export const urlEncoderRoute = new Elysia({
+	prefix: '/url-encoder',
+	detail: {
+		tags: ['Web']
+	}
+})
 	.post('/encode', ({ body }) => {
 		const { text } = body;
 		const encoded = encodeToURL(text);
@@ -20,9 +25,6 @@ export const urlEncoderRoute = new Elysia({ prefix: '/url-encoder' })
 		body: t.Object({
 			text: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Web']
-		}
 	})
 	.post('/decode', ({ body }) => {
 		const { encoded } = body;
@@ -32,7 +34,4 @@ export const urlEncoderRoute = new Elysia({ prefix: '/url-encoder' })
 		body: t.Object({
 			encoded: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Web']
-		}
 	});

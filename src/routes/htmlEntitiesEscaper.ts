@@ -21,7 +21,12 @@ const unescapeHTML = (escaped: string): string => {
 		.replace(/&#39;/g, "'"); // Replace &#39;
 };
 
-export const htmlEntitiesEscaperRoute = new Elysia({ prefix: '/html-entities-escaper' })
+export const htmlEntitiesEscaperRoute = new Elysia({
+	prefix: '/html-entities-escaper',
+	detail: {
+		tags: ['Web']
+	}
+})
 	.post('/escape', ({ body }) => {
 		const { text } = body
 		const escaped = escapeHTML(text)
@@ -30,9 +35,6 @@ export const htmlEntitiesEscaperRoute = new Elysia({ prefix: '/html-entities-esc
 		body: t.Object({
 			text: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Web']
-		}
 	})
 	.post('/unescape', ({ body }) => {
 		const { escaped } = body
@@ -42,7 +44,4 @@ export const htmlEntitiesEscaperRoute = new Elysia({ prefix: '/html-entities-esc
 		body: t.Object({
 			escaped: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Web']
-		}
 	});

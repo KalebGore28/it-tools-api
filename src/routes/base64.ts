@@ -1,7 +1,12 @@
 // src/routes/base64.ts
 import { Elysia, t } from 'elysia'
 
-export const base64Route = new Elysia({ prefix: '/base64' })
+export const base64Route = new Elysia({
+	prefix: '/base64',
+	detail: {
+		tags: ['Converter']
+	}
+})
 	.post('/encode', ({ body }) => {
 		const { text, urlSafe = false } = body
 
@@ -19,9 +24,6 @@ export const base64Route = new Elysia({ prefix: '/base64' })
 			text: t.String({ minLength: 1 }),
 			urlSafe: t.Optional(t.Boolean({ default: false })),
 		}),
-		detail: {
-			tags: ['Converter']
-		}
 	})
 	.post('/decode', ({ body }) => {
 		const { encoded, urlSafe = false } = body
@@ -41,7 +43,4 @@ export const base64Route = new Elysia({ prefix: '/base64' })
 			encoded: t.String({ minLength: 1 }),
 			urlSafe: t.Optional(t.Boolean({ default: false })),
 		}),
-		detail: {
-			tags: ['Converter']
-		}
 	})

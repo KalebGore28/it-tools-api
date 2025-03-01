@@ -20,15 +20,16 @@ const convertDateFormats = (date: Date) => {
 	};
 };
 
-export const dateConverterRoute = new Elysia({ prefix: '/date-converter' })
-	.get('/', (c) => {
+export const dateConverterRoute = new Elysia({
+	prefix: '/date-converter',
+	detail: {
+		tags: ['Converter']
+	}
+})
+	.get('/', () => {
 		const currentDate = new Date();
 		const formats = convertDateFormats(currentDate);
 		return formats;
-	}, {
-		detail: {
-			tags: ['Converter']
-		}
 	})
 	.post('/', ({ body }) => {
 		const { date: inputDate } = body;
@@ -41,7 +42,4 @@ export const dateConverterRoute = new Elysia({ prefix: '/date-converter' })
 				minLength: 1,
 			}),
 		}),
-		detail: {
-			tags: ['Converter']
-		}
 	})

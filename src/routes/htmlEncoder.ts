@@ -19,7 +19,12 @@ const htmlToText = (html: string): string => {
 		});
 };
 
-export const htmlEncoderRoute = new Elysia({ prefix: '/html-encoder' })
+export const htmlEncoderRoute = new Elysia({
+	prefix: '/html-encoder',
+	detail: {
+		tags: ['Web']
+	}
+})
 	.post('/encode', ({ body }) => {
 		const { text } = body
 		const html = textToHTML(text)
@@ -28,9 +33,6 @@ export const htmlEncoderRoute = new Elysia({ prefix: '/html-encoder' })
 		body: t.Object({
 			text: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Web']
-		}
 	})
 	.post('/decode', ({ body }) => {
 		const { html } = body
@@ -40,7 +42,4 @@ export const htmlEncoderRoute = new Elysia({ prefix: '/html-encoder' })
 		body: t.Object({
 			html: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Web']
-		}
 	});

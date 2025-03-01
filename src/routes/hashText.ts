@@ -27,7 +27,11 @@ function hashText(text: string, algorithm: string, encoding: string): string {
 		: digest;
 }
 
-export const hashTextRoute = new Elysia()
+export const hashTextRoute = new Elysia({
+	detail: {
+		tags: ['Crypto']
+	}
+})
 	.post("/hash-text", ({ body }) => {
 		const { text, algorithm = "sha256", encoding = "base16" } = body;
 		const hashedText = hashText(text, algorithm, encoding);
@@ -44,7 +48,4 @@ export const hashTextRoute = new Elysia()
 				pattern: "^(base2|base16|base64|base64url)$",
 			})),
 		}),
-		detail: {
-			tags: ['Crypto']
-		}
 	})

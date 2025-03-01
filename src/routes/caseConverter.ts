@@ -43,7 +43,11 @@ const toMockingCase = (str: string): string =>
 		.map((char, i) => (i % 2 === 0 ? char.toLowerCase() : char.toUpperCase()))
 		.join('');
 
-export const caseConverterRoute = new Elysia()
+export const caseConverterRoute = new Elysia({
+	detail: {
+		tags: ['Converter']
+	}
+})
 	.post('/case-converter', ({ body }) => {
 		const { text } = body;
 
@@ -68,7 +72,4 @@ export const caseConverterRoute = new Elysia()
 		body: t.Object({
 			text: t.String({ minLength: 1 })
 		}),
-		detail: {
-			tags: ['Converter']
-		}
 	});

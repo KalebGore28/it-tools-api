@@ -8,7 +8,12 @@ import { colornames } from 'color-name-list';
 const colors: { [key: string]: string } = colornames.reduce((o, { name, hex }) => Object.assign(o, { [name.toLowerCase()]: hex }), {});
 const nearest = nearestColor.from(colors);
 
-export const colorConverterRoute = new Elysia({ prefix: '/color-converter' })
+export const colorConverterRoute = new Elysia({
+	prefix: '/color-converter',
+	detail: {
+		tags: ['Converter']
+	}
+})
 	.get('/color-names', () => {
 		return colors;
 	}, {
@@ -43,7 +48,4 @@ export const colorConverterRoute = new Elysia({ prefix: '/color-converter' })
 		body: t.Object({
 			color: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Converter']
-		}
 	})

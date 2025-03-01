@@ -1,13 +1,13 @@
 import { Elysia } from 'elysia';
 import { indexHtml, notFoundHtml, serverErrorHtml } from '../data/staticHtmls';
 
-export const staticRoutes = new Elysia()
+export const staticRoutes = new Elysia({
+    detail: {
+        tags: ['App']
+    }
+})
     .get('/', () => {
         return new Response(indexHtml, { headers: { 'Content-Type': 'text/html' } });
-    }, {
-        detail: {
-            tags: ['App']
-        }
     })
     .get('*', () => {
         return new Response(notFoundHtml, { headers: { 'Content-Type': 'text/html' } });

@@ -2,7 +2,11 @@
 import { Elysia, t } from 'elysia'
 import { LoremIpsum } from "lorem-ipsum";
 
-export const loremGeneratorRoute = new Elysia()
+export const loremGeneratorRoute = new Elysia({
+	detail: {
+		tags: ['Text']
+	}
+})
 	.post("/lorem", ({ body }) => {
 		const {
 			paragraphs = 1,
@@ -60,7 +64,4 @@ export const loremGeneratorRoute = new Elysia()
 				t.Boolean({ default: false })
 			),
 		}),
-		detail: {
-			tags: ['Text']
-		}
 	})

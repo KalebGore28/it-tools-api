@@ -1,7 +1,12 @@
 // src/routes/binaryConverter.ts
 import { Elysia, t } from 'elysia'
 
-export const binaryConverterRoute = new Elysia({ prefix: '/binary' })
+export const binaryConverterRoute = new Elysia({
+	prefix: '/binary',
+	detail: {
+		tags: ['Converter']
+	}
+ })
 	.post('/encode', ({ body }) => {
 		const { text } = body
 
@@ -16,9 +21,6 @@ export const binaryConverterRoute = new Elysia({ prefix: '/binary' })
 		body: t.Object({
 			text: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Converter']
-		}
 	})
 	.post('/decode', ({ body }) => {
 		const { binary } = body
@@ -37,7 +39,4 @@ export const binaryConverterRoute = new Elysia({ prefix: '/binary' })
 				pattern: '^([01]{8} ?)+$', // Validate binary format
 			}),
 		}),
-		detail: {
-			tags: ['Converter']
-		}
 	})

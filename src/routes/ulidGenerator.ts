@@ -2,7 +2,11 @@
 import { Elysia, t } from 'elysia'
 import { ulid } from "ulid";
 
-export const ulidGeneratorRoute = new Elysia()
+export const ulidGeneratorRoute = new Elysia({
+	detail: {
+		tags: ['Crypto']
+	}
+})
 	.post('/ulid-generator', ({ body }) => {
 		const { quantity = 1 } = body
 
@@ -14,7 +18,4 @@ export const ulidGeneratorRoute = new Elysia()
 		body: t.Object({
 			quantity: t.Optional(t.Number({ minimum: 1, maximum: 100, default: 1 })),
 		}),
-		detail: {
-			tags: ['Crypto']
-		}
 	})
