@@ -1,7 +1,11 @@
 // src/routes/jsonPrettify.ts
 import { Elysia, t } from 'elysia'
 
-export const jsonPrettifyRoute = new Elysia()
+export const jsonPrettifyRoute = new Elysia({
+	detail: {
+		tags: ['Development']
+	}
+})
 	.post("/json-prettify", ({ body }) => {
 		const { json, indent = 2 } = body;
 		let parsedJson;
@@ -33,7 +37,4 @@ export const jsonPrettifyRoute = new Elysia()
 				t.Number({ default: 2, minimum: 0, maximum: 10 })
 			),
 		}),
-		detail: {
-			tags: ['Development']
-		}
 	});

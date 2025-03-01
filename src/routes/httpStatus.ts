@@ -2,13 +2,14 @@
 import { Elysia, t } from 'elysia'
 import htmlCodes from '../data/htmlcodes.json';
 
-export const httpStatusRoute = new Elysia({ prefix: '/http-status' })
+export const httpStatusRoute = new Elysia({
+	prefix: '/http-status',
+	detail: {
+		tags: ['Web']
+	}
+})
 	.get('/', () => {
 		return htmlCodes;
-	}, {
-		detail: {
-			tags: ['Web']
-		}
 	})
 	.get('/:code', ({ params }) => {
 		const { code } = params;
@@ -42,7 +43,4 @@ export const httpStatusRoute = new Elysia({ prefix: '/http-status' })
 				pattern: "^(1xx|2xx|3xx|4xx|5xx|\\d{3})$", // 1xx, 2xx, 3xx, 4xx, 5xx, or any 3-digit number
 			}),
 		}),
-		detail: {
-			tags: ['Web']
-		}
 	});

@@ -27,7 +27,11 @@ function generateToken(length: number, options: { uppercase: boolean; lowercase:
 	return token;
 }
 
-export const tokenGeneratorRoute = new Elysia()
+export const tokenGeneratorRoute = new Elysia({
+	detail: {
+		tags: ['Crypto']
+	}
+})
 	.post('/token-generator', ({ body }) => {
 		const { length = 32, uppercase = true, lowercase = true, numbers = true, symbols = false } = body
 		const token = generateToken(length, { uppercase, lowercase, numbers, symbols })
@@ -40,7 +44,4 @@ export const tokenGeneratorRoute = new Elysia()
 			numbers: t.Optional(t.Boolean({ default: true })),
 			symbols: t.Optional(t.Boolean({ default: false })),
 		}),
-		detail: {
-			tags: ['Crypto']
-		}
 	})

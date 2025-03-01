@@ -1,7 +1,11 @@
 // src/routes/urlParser.ts
 import { Elysia, t } from 'elysia'
 
-export const urlParserRoute = new Elysia()
+export const urlParserRoute = new Elysia({
+	detail: {
+		tags: ['Web']
+	}
+})
 	.post('/url-parser', ({ body }) => {
 		const { url } = body
 
@@ -31,7 +35,4 @@ export const urlParserRoute = new Elysia()
 		body: t.Object({
 			url: t.String({ minLength: 1 }),
 		}),
-		detail: {
-			tags: ['Web']
-		}
 	});

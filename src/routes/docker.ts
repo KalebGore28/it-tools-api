@@ -3,7 +3,12 @@ import { Elysia, t } from 'elysia'
 const composerize = require('composerize');
 const decomposerize = require('decomposerize');
 
-export const dockerRoute = new Elysia({ prefix: '/docker' })
+export const dockerRoute = new Elysia({
+    prefix: '/docker',
+    detail: {
+        tags: ['Development']
+    }
+})
     .post('/composerize', ({ body }) => {
         const { dockerRunCommand, existingComposeConfig } = body;
 
@@ -16,9 +21,6 @@ export const dockerRoute = new Elysia({ prefix: '/docker' })
             dockerRunCommand: t.String(),
             existingComposeConfig: t.String({ default: '' }),
         }),
-        detail: {
-            tags: ['Development']
-        }
     })
     .post('/decomposerize', ({ body }) => {
         const { dockerCompose, configuration } = body;
@@ -39,7 +41,4 @@ export const dockerRoute = new Elysia({ prefix: '/docker' })
                 'arg-value-separator': t.String({ default: ' ' }),
             })
         }),
-        detail: {
-            tags: ['Development']
-        }
     });

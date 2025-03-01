@@ -8,7 +8,11 @@ const wellKnownNamespaces: Record<string, string> = {
 	X500: '6ba7b814-9dad-11d1-80b4-00c04fd430c8',
 };
 
-export const uuidGeneratorRoute = new Elysia()
+export const uuidGeneratorRoute = new Elysia({
+	detail: {
+		tags: ['Crypto']
+	}
+})
 	.post('/uuid-generator', ({ body }) => {
 		const { version = 'v4', quantity = 1, namespace = '', name = '' } = body;
 
@@ -74,7 +78,4 @@ export const uuidGeneratorRoute = new Elysia()
 				})
 			),
 		}),
-		detail: {
-			tags: ['Crypto']
-		}
 	});
