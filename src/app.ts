@@ -58,8 +58,8 @@ export const app = new Elysia({ aot: false })
                 { name: 'Development', description: 'Development endpoints' },
                 { name: 'Text', description: 'Text endpoints' },
                 { name: 'Web', description: 'Web endpoints' },
-            ]
-        }
+            ],
+        },
     }))
     .use(base64Route)
     .use(binaryConverterRoute)
