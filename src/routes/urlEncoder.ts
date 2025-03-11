@@ -11,12 +11,7 @@ const decodeFromURL = (encoded: string): string => {
 	return decodeURIComponent(encoded);
 };
 
-export const urlEncoderRoute = new Elysia({
-	prefix: '/url-encoder',
-	detail: {
-		tags: ['Web']
-	}
-})
+export const urlEncoderRoute = new Elysia({ prefix: '/url-encoder' })
 	.post('/encode', ({ body }) => {
 		const { text } = body;
 		const encoded = encodeToURL(text);
@@ -25,6 +20,24 @@ export const urlEncoderRoute = new Elysia({
 		body: t.Object({
 			text: t.String({ minLength: 1 }),
 		}),
+		detail: {
+			summary: 'Encode text to URL-encoded format',
+			description: 'Converts text to URL-encoded format.',
+			operationId: 'encodeToURL',
+			tags: ['Web'],
+			responses: {
+				200: {
+					description: 'URL-encoded text',
+					content: {
+						'application/json': {
+							example: {
+								"encoded": "Hello%2C%20world!"
+							},
+						},
+					},
+				},
+			},
+		}
 	})
 	.post('/decode', ({ body }) => {
 		const { encoded } = body;
@@ -34,4 +47,22 @@ export const urlEncoderRoute = new Elysia({
 		body: t.Object({
 			encoded: t.String({ minLength: 1 }),
 		}),
+		detail: {
+			summary: 'Decode URL-encoded text',
+			description: 'Converts URL-encoded text to plain text.',
+			operationId: 'decodeFromURL',
+			tags: ['Web'],
+			responses: {
+				200: {
+					description: 'Decoded text',
+					content: {
+						'application/json': {
+							example: {
+								text: 'Hello, world!',
+							},
+						},
+					},
+				},
+			},
+		}
 	});

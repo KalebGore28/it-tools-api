@@ -2,14 +2,16 @@
 import { Elysia, t } from 'elysia'
 import htmlCodes from '../data/htmlcodes.json';
 
-export const httpStatusRoute = new Elysia({
-	prefix: '/http-status',
-	detail: {
-		tags: ['Web']
-	}
-})
+export const httpStatusRoute = new Elysia({ prefix: '/http-status' })
 	.get('/', () => {
 		return htmlCodes;
+	}, {
+		detail: {
+			summary: 'Get all HTTP status codes',
+			description: 'Retrieve all information about HTTP status codes.',
+			operationId: 'getHttpStatusCodes',
+			tags: ['Web'],
+		}
 	})
 	.get('/:code', ({ params }) => {
 		const { code } = params;
@@ -43,4 +45,32 @@ export const httpStatusRoute = new Elysia({
 				pattern: "^(1xx|2xx|3xx|4xx|5xx|\\d{3})$", // 1xx, 2xx, 3xx, 4xx, 5xx, or any 3-digit number
 			}),
 		}),
+		detail: {
+			summary: 'Get HTTP status code(s)',
+			description: 'Retrieve information about HTTP status codes.',
+			operationId: 'getHttpStatusCode',
+			tags: ['Web'],
+			responses: {
+				200: {
+					description: 'HTTP status code information',
+					content: {
+						'application/json': {
+							example: {
+								code: 200,
+								phrase: 'OK',
+								description: 'Standard response for successful HTTP requests.',
+							},
+						},
+					},
+				},
+				404: {
+					description: 'Status code not found',
+					content: {
+						'text/plain': {
+							example: 'Status code "999" not found',
+						},
+					},
+				},
+			}
+		}
 	});

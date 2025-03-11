@@ -39,7 +39,7 @@ describe('Base64', () => {
 		})
 		expect(error).toBeNull()
 		expect(data).toEqual({
-			decoded: "hello",
+			text: "hello",
 			urlSafe: true
 		})
 	})
@@ -52,7 +52,7 @@ describe('Base64', () => {
 		})
 		expect(error).toBeNull()
 		expect(data).toEqual({
-			decoded: "hello",
+			text: "hello",
 			urlSafe: false
 		})
 	})

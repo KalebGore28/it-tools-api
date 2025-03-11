@@ -27,11 +27,7 @@ function generateToken(length: number, options: { uppercase: boolean; lowercase:
 	return token;
 }
 
-export const tokenGeneratorRoute = new Elysia({
-	detail: {
-		tags: ['Crypto']
-	}
-})
+export const tokenGeneratorRoute = new Elysia()
 	.post('/token-generator', ({ body }) => {
 		const { length = 32, uppercase = true, lowercase = true, numbers = true, symbols = false } = body
 		const token = generateToken(length, { uppercase, lowercase, numbers, symbols })
@@ -44,4 +40,23 @@ export const tokenGeneratorRoute = new Elysia({
 			numbers: t.Optional(t.Boolean({ default: true })),
 			symbols: t.Optional(t.Boolean({ default: false })),
 		}),
+		detail: {
+			summary: 'Generate random token',
+			description: 'Generate a random token with the specified length and character options.',
+			operationId: 'generateRandomToken',
+			tags: ['Crypto'],
+			responses: {
+				200: {
+					description: 'Generated token',
+					content: {
+						'application/json': {
+							example: {
+								length: 32,
+								token: "lsLjYNNRl7TqNkvpdYNxE2Rso0k6Ja97"
+							}
+						},
+					},
+				}
+			}
+		}
 	})

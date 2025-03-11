@@ -43,11 +43,7 @@ const toMockingCase = (str: string): string =>
 		.map((char, i) => (i % 2 === 0 ? char.toLowerCase() : char.toUpperCase()))
 		.join('');
 
-export const caseConverterRoute = new Elysia({
-	detail: {
-		tags: ['Converter']
-	}
-})
+export const caseConverterRoute = new Elysia()
 	.post('/case-converter', ({ body }) => {
 		const { text } = body;
 
@@ -72,4 +68,34 @@ export const caseConverterRoute = new Elysia({
 		body: t.Object({
 			text: t.String({ minLength: 1 })
 		}),
+		detail: {
+			summary: 'Convert text to different case formats',
+			description: 'Converts text to various case formats such as camelCase, snake_case, PascalCase, etc.',
+			operationId: 'convertCase',
+			tags: ['Converter'],
+			responses: {
+				200: {
+					description: 'Text converted to different case formats',
+					content: {
+						'application/json': {
+							example: {
+								lowercase: "hello world!",
+								uppercase: "HELLO WORLD!",
+								camelcase: "helloWorld!",
+								capitalcase: "Hello World!",
+								constantcase: "HELLO_WORLD!",
+								dotcase: "hello.world!",
+								headercase: "Hello-World!",
+								paramcase: "hello-world!",
+								pascalcase: "HelloWorld!",
+								pathcase: "hello/world!",
+								sentencecase: "Hello world!",
+								snakecase: "hello_world!",
+								mockingcase: "hElLo wOrLd!"
+							  }
+						},
+					},
+				},
+			}
+		}
 	});
