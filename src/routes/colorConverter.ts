@@ -8,17 +8,32 @@ import { colornames } from 'color-name-list';
 const colors: { [key: string]: string } = colornames.reduce((o, { name, hex }) => Object.assign(o, { [name.toLowerCase()]: hex }), {});
 const nearest = nearestColor.from(colors);
 
-export const colorConverterRoute = new Elysia({
-	prefix: '/color-converter',
-	detail: {
-		tags: ['Converter']
-	}
-})
+export const colorConverterRoute = new Elysia({ prefix: '/color-converter' })
 	.get('/color-names', () => {
 		return colors;
 	}, {
 		detail: {
-			tags: ['Converter']
+			summary: 'Get color names',
+			description: 'Returns a list of color names and their HEX values. This list is massive.',
+			operationId: 'getColorNames',
+			tags: ['Converter'],
+			responses: {
+				200: {
+					description: 'Color names',
+					content: {
+						'application/json': {
+							example: {
+								black: '#000000',
+								white: '#FFFFFF',
+								red: '#FF0000',
+								green: '#008000',
+								blue: '#0000FF',
+								"...": "#...",
+							}
+						},
+					},
+				},
+			}
 		}
 	})
 	.post('/', ({ body }) => {
@@ -48,4 +63,28 @@ export const colorConverterRoute = new Elysia({
 		body: t.Object({
 			color: t.String({ minLength: 1 }),
 		}),
+		detail: {
+			summary: 'Convert color',
+			description: 'Converts a color to various formats.',
+			operationId: 'convertColor',
+			tags: ['Converter'],
+			responses: {
+				200: {
+					description: 'Color formats',
+					content: {
+						'application/json': {
+							example: {
+								hex: '#FF0000',
+								rgb: 'rgb(255, 0, 0)',
+								hsl: 'hsl(0, 100%, 50%)',
+								hwb: 'hwb(0 100% 0%)',
+								lch: 'lch(53.2408 104.55 40.0)',
+								cmyk: 'device-cmyk(0% 100% 100% 0%)',
+								name: 'red',
+							}
+						},
+					},
+				},
+			}
+		}
 	})

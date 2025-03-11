@@ -8,11 +8,7 @@ const wellKnownNamespaces: Record<string, string> = {
 	X500: '6ba7b814-9dad-11d1-80b4-00c04fd430c8',
 };
 
-export const uuidGeneratorRoute = new Elysia({
-	detail: {
-		tags: ['Crypto']
-	}
-})
+export const uuidGeneratorRoute = new Elysia()
 	.post('/uuid-generator', ({ body }) => {
 		const { version = 'v4', quantity = 1, namespace = '', name = '' } = body;
 
@@ -78,4 +74,38 @@ export const uuidGeneratorRoute = new Elysia({
 				})
 			),
 		}),
+		detail: {
+			summary: 'Generate UUID',
+			description: 'Generate one or more UUIDs of the specified version.',
+			operationId: 'generateUUID',
+			tags: ['Crypto'],
+			responses: {
+				200: {
+					description: 'Generated UUIDs',
+					content: {
+						'application/json': {
+							example: {
+								version: 'v4',
+								quantity: 3,
+								uuids: [
+									'1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4c3f',
+									'2c9e592c-0b9c-4f3c-9e0d-6b1a5c7f8d0f',
+									'3d4e5e6d-7d8c-4b3a-9c0d-1b2a3c4d5e6f',
+								],
+							},
+						},
+					},
+				},
+				400: {
+					description: 'Invalid UUID version or missing namespace/name',
+					content: {
+						'application/json': {
+							example: {
+								error: 'Namespace and name are required for v3/v5 UUIDs'
+							}
+						},
+					},
+				},
+			},
+		}
 	});

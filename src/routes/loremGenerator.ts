@@ -2,11 +2,7 @@
 import { Elysia, t } from 'elysia'
 import { LoremIpsum } from "lorem-ipsum";
 
-export const loremGeneratorRoute = new Elysia({
-	detail: {
-		tags: ['Text']
-	}
-})
+export const loremGeneratorRoute = new Elysia()
 	.post("/lorem", ({ body }) => {
 		const {
 			paragraphs = 1,
@@ -64,4 +60,22 @@ export const loremGeneratorRoute = new Elysia({
 				t.Boolean({ default: false })
 			),
 		}),
+		detail: {
+			summary: "Generate Lorem Ipsum text",
+			description: "Generate custom Lorem Ipsum text with configurable parameters.",
+			operationId: "generateLoremIpsum",
+			tags: ["Text"],
+			responses: {
+				200: {
+					description: "Generated Lorem Ipsum text",
+					content: {
+						"text/plain": {
+							example: {
+								text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+							},
+						},
+					},
+				},
+			}
+		}
 	})

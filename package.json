@@ -19,7 +19,7 @@
 		"@types/color": "^4.2.0",
 		"@types/diff": "^6.0.0",
 		"@types/nearest-color": "^0.4.1",
-		"wrangler": "^3.110.0"
+		"wrangler": "^3.112.0"
 	},
 	"peerDependencies": {
 		"typescript": "^5.7.2"
@@ -31,7 +31,7 @@
 		"composerize": "^1.7.1",
 		"decomposerize": "^1.4.4",
 		"diff": "^7.0.0",
-		"elysia": "^1.2.22",
+		"elysia": "^1.2.25",
 		"logixlysia": "^4.1.2",
 		"lorem-ipsum": "^2.0.8",
 		"nearest-color": "^0.4.4",

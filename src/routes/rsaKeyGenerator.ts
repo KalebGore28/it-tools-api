@@ -11,11 +11,7 @@ function formatPEM(base64String: string, type: "PUBLIC" | "PRIVATE") {
 	return header + formattedKey + footer;
 }
 
-export const rsaKeyGeneratorRoute = new Elysia({
-	detail: {
-		tags: ['Crypto']
-	}
-})
+export const rsaKeyGeneratorRoute = new Elysia()
 	.post('/rsa-key-generator', async ({ body }) => {
 		// Ensure body is always an object and apply default manually
 		const bits = body?.bits ?? 2048;
@@ -46,5 +42,24 @@ export const rsaKeyGeneratorRoute = new Elysia({
 	}, {
 		body: t.Object({
 			bits: t.Optional(t.Number({ minimum: 512, maximum: 4096, default: 2048 })),
-		}), // The object itself is always required, but `bits` is optional
+		}),
+		detail: {
+			summary: 'Generate RSA key pair',
+			description: 'Generate a new RSA key pair with the specified number of bits.',
+			operationId: 'generateRSAKeyPair',
+			tags: ['Crypto'],
+			responses: {
+				200: {
+					description: 'Generated RSA key pair',
+					content: {
+						'application/json': {
+							example: {
+								publicKey: '-----BEGIN PUBLIC KEY-----\...-----END PUBLIC KEY-----',
+								privateKey: '-----BEGIN PRIVATE KEY-----\...-----END PRIVATE KEY-----',
+							},
+						},
+					},
+				},
+			}
+		}
 	});

@@ -1,11 +1,7 @@
 // src/routes/urlParser.ts
 import { Elysia, t } from 'elysia'
 
-export const urlParserRoute = new Elysia({
-	detail: {
-		tags: ['Web']
-	}
-})
+export const urlParserRoute = new Elysia()
 	.post('/url-parser', ({ body }) => {
 		const { url } = body
 
@@ -35,4 +31,32 @@ export const urlParserRoute = new Elysia({
 		body: t.Object({
 			url: t.String({ minLength: 1 }),
 		}),
+		detail: {
+			summary: 'Parse URL',
+			description: 'Parse a URL and extract its components.',
+			operationId: 'parseURL',
+			tags: ['Web'],
+			responses: {
+				200: {
+					description: 'Parsed URL components',
+					content: {
+						'application/json': {
+							example: {
+								protocol: "https:",
+								username: "me",
+								password: "pwd",
+								hostname: "it-tools-api.noesc.io",
+								port: "3000",
+								path: "/url-parser",
+								params: {
+									key1: "value",
+									key2: "value2"
+								},
+								hash: "#the-hash"
+							}
+						}
+					}
+				}
+			}
+		}
 	});
