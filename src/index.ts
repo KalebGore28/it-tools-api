@@ -10,9 +10,6 @@ export default {
 		ctx: Context,
 
 	): Promise<Response> {
-		// const expectedAuth = `Basic ${btoa(`admin:${env.BASIC_AUTH_PASSWORD}`)}`
-		// const pathname = new URL(request.url).pathname
-
 		return await app.fetch(request)
 	},
 }

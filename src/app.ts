@@ -30,7 +30,6 @@ import { uuidGeneratorRoute } from './routes/uuidGenerator'
 // Create Elysia App
 export const app = new Elysia({ aot: false })
     .use(
-        // @ts-ignore
         logixlysia({
             config: {
                 showStartupMessage: true,

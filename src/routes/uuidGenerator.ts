@@ -9,14 +9,14 @@ const wellKnownNamespaces: Record<string, string> = {
 };
 
 export const uuidGeneratorRoute = new Elysia()
-	.post('/uuid-generator', ({ body }) => {
+	.post('/uuid-generator', ({ body, set }) => {
 		const { version = 'v4', quantity = 1, namespace = '', name = '' } = body;
 
-		// For v3 and v5, ensure both namespace and name are provided.
 		if ((version === 'v3' || version === 'v5') && (!namespace || !name)) {
-			return new Response(JSON.stringify({
+			set.status = 400;
+			return {
 				error: 'Namespace and name are required for v3/v5 UUIDs'
-			}), { status: 400, headers: { "Content-Type": "application/json" } });
+			};
 		}
 
 		let uuids: string[] = [];
@@ -65,7 +65,6 @@ export const uuidGeneratorRoute = new Elysia()
 			namespace: t.Optional(
 				t.String({
 					pattern: '^(DNS|URL|OID|X500|[0-9a-fA-F-]{36})$',
-					default: '', // optional for versions that don't require it
 				})
 			),
 			name: t.Optional(

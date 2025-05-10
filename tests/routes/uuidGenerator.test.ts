@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { describe, expect, it } from 'bun:test'
 import { treaty } from '@elysiajs/eden'
 import { uuidGeneratorRoute } from '../../src/routes/uuidGenerator'
@@ -70,14 +69,15 @@ describe('UUID Generator', () => {
 	})
 
 	it('should return an error if namespace and name are not provided for v3 UUID', async () => {
-		const { data, error } = await api['uuid-generator'].post({
+		const { data, error, response } = await api['uuid-generator'].post({
 			version: 'v3'
-		})
-		expect(data).toBeNull();
-		expect(error?.value).toEqual({ 
-			error: 'Namespace and name are required for v3/v5 UUIDs' 
 		});
-	})
+		expect(response.status).toBe(400);
+		expect(error?.value).toEqual({
+			// @ts-ignore
+			error: 'Namespace and name are required for v3/v5 UUIDs'
+		});
+	});
 
 	it('should generate a nil UUID', async () => {
 		const { data, error } = await api['uuid-generator'].post({
