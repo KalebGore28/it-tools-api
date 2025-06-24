@@ -1,3 +1,3 @@
 # It-Tools-API
 
-Original: https://github.com/CorentinTh/it-tools
+Original Idea: https://github.com/CorentinTh/it-tools
